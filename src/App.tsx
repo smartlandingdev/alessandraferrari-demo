@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import advogadaImg from './assets/advogada.png'
 import previdenciaImg from './assets/previdencia.png'
+import justicaImg from './assets/justica.jpg'
 import balanceIcon from './assets/icons/balance.png'
 import lawBookIcon from './assets/icons/law-book.png'
 import auctionIcon from './assets/icons/auction.png'
@@ -130,7 +131,8 @@ function App() {
         <div className="container">
           <div className="sobre-grid">
             <div className="sobre-content">
-              <h2 className="section-title">Sobre a Advogada</h2>
+              <h2 className="section-title sobre-title">Sobre a Advogada</h2>
+              <div className="sobre-divider"></div>
               <p className="sobre-text">
                 O escritório Alessandra Ferrari Advocacia atua com dedicação exclusiva ao Direito Previdenciário. Nosso trabalho é oferecer um atendimento humanizado, análise minuciosa do caso e orientação completa em todas as etapas do processo.
               </p>
@@ -139,65 +141,56 @@ function App() {
               </p>
             </div>
             <div className="sobre-image">
-              {/* Ícones orbitais */}
-              <div className="deco-icon deco-icon-1">
-                <img src={balanceIcon} alt="Balança" />
-              </div>
-              <div className="deco-icon deco-icon-2">
-                <img src={lawBookIcon} alt="Livro" />
-              </div>
-              <div className="deco-icon deco-icon-3">
-                <img src={auctionIcon} alt="Martelo" />
-              </div>
-              <div className="deco-icon deco-icon-4">
-                <img src={policeOrderIcon} alt="Ordem" />
-              </div>
-              <div className="deco-icon deco-icon-5">
-                <img src={balanceIcon} alt="Balança" />
-              </div>
-              <div className="deco-icon deco-icon-6">
-                <img src={auctionIcon} alt="Martelo" />
-              </div>
-
               <img src={advogadaImg} alt="Alessandra Ferrari" className="sobre-img" />
             </div>
           </div>
         </div>
       </section>
 
+      {/* Espaçamento */}
+      <div className="spacing-section"></div>
+
       {/* Benefícios */}
       <section id="beneficios" className="section-beneficios">
-        <div className="deco-square-right"></div>
-        <div className="container">
-          <h2 className="section-title centered">Benefícios Atendidos</h2>
-          <div className="beneficios-grid">
-            <div className="beneficio-card" onClick={() => openModal('idade')}>
-              <h3>Aposentadoria por Idade (Rural ou Urbana)</h3>
-              <button className="beneficio-btn">Ver mais informações</button>
+        <div className="container beneficios-container">
+          <h2 className="section-title centered beneficios-title">Benefícios Atendidos</h2>
+          <div className="beneficios-layout">
+            <div className="beneficios-image">
+              <img
+                src="https://img1.migalhas.uol.com.br/gf_base/empresas/MIGA/imagens/16B4121113CFFE91FBF7F0997361461AE890_advogada.jpg"
+                alt="Advogada Previdenciária"
+                className="beneficios-img"
+              />
             </div>
-            <div className="beneficio-card" onClick={() => openModal('tempo')}>
-              <h3>Aposentadoria por Tempo de Contribuição</h3>
-              <button className="beneficio-btn">Ver mais informações</button>
-            </div>
-            <div className="beneficio-card" onClick={() => openModal('especial')}>
-              <h3>Aposentadoria Especial – Atividades Insalubres</h3>
-              <button className="beneficio-btn">Ver mais informações</button>
-            </div>
-            <div className="beneficio-card" onClick={() => openModal('invalidez')}>
-              <h3>Aposentadoria por Invalidez / Auxílio-Doença / Auxílio-Acidente</h3>
-              <button className="beneficio-btn">Ver mais informações</button>
-            </div>
-            <div className="beneficio-card" onClick={() => openModal('pensao')}>
-              <h3>Pensão por Morte</h3>
-              <button className="beneficio-btn">Ver mais informações</button>
-            </div>
-            <div className="beneficio-card" onClick={() => openModal('revisao')}>
-              <h3>Revisões de Benefícios e Desaposentação</h3>
-              <button className="beneficio-btn">Ver mais informações</button>
-            </div>
-            <div className="beneficio-card" onClick={() => openModal('calculos')}>
-              <h3>Cálculos e Simulações Previdenciárias Personalizadas</h3>
-              <button className="beneficio-btn">Ver mais informações</button>
+            <div className="beneficios-grid">
+              <div className="beneficio-card" onClick={() => openModal('idade')}>
+                <h3>Aposentadoria por Idade (Rural ou Urbana)</h3>
+                <button className="beneficio-btn">Ver mais informações</button>
+              </div>
+              <div className="beneficio-card" onClick={() => openModal('tempo')}>
+                <h3>Aposentadoria por Tempo de Contribuição</h3>
+                <button className="beneficio-btn">Ver mais informações</button>
+              </div>
+              <div className="beneficio-card" onClick={() => openModal('especial')}>
+                <h3>Aposentadoria Especial – Atividades Insalubres</h3>
+                <button className="beneficio-btn">Ver mais informações</button>
+              </div>
+              <div className="beneficio-card" onClick={() => openModal('invalidez')}>
+                <h3>Aposentadoria por Invalidez / Auxílio-Doença / Auxílio-Acidente</h3>
+                <button className="beneficio-btn">Ver mais informações</button>
+              </div>
+              <div className="beneficio-card" onClick={() => openModal('pensao')}>
+                <h3>Pensão por Morte</h3>
+                <button className="beneficio-btn">Ver mais informações</button>
+              </div>
+              <div className="beneficio-card" onClick={() => openModal('revisao')}>
+                <h3>Revisões de Benefícios e Desaposentação</h3>
+                <button className="beneficio-btn">Ver mais informações</button>
+              </div>
+              <div className="beneficio-card" onClick={() => openModal('calculos')}>
+                <h3>Cálculos e Simulações Previdenciárias Personalizadas</h3>
+                <button className="beneficio-btn">Ver mais informações</button>
+              </div>
             </div>
           </div>
         </div>
@@ -206,8 +199,8 @@ function App() {
       {/* Imagem Divisória */}
       <section className="section-divider-image">
         <img
-          src={previdenciaImg}
-          alt="Previdência"
+          src={justicaImg}
+          alt="Lady Justice - Símbolo da Justiça"
           className="divider-img"
         />
       </section>
@@ -215,9 +208,13 @@ function App() {
       {/* Quem Somos */}
       <section id="areas" className="section-areas">
         <div className="container">
-          <h2 className="section-title centered">Quem Somos</h2>
-          <div className="quem-somos-content">
-            <p className="quem-somos-intro">Localizado em Cascavel/PR, o escritório atua há anos prestando assessoria jurídica exclusiva na área previdenciária. Atendemos clientes de toda a região, acompanhando todas as fases do processo:</p>
+          <div className="quem-somos-layout">
+            <div className="quem-somos-text">
+              <h2 className="section-title quem-somos-title">Quem Somos</h2>
+              <div className="quem-somos-divider"></div>
+              <p className="quem-somos-intro">Localizado em Cascavel/PR, o escritório atua há anos prestando assessoria jurídica exclusiva na área previdenciária. Atendemos clientes de toda a região, acompanhando todas as fases do processo:</p>
+              <p className="quem-somos-footer">Trabalhamos com foco em oferecer ao cliente informações claras, segurança jurídica e resultados consistentes.</p>
+            </div>
 
             <div className="servicos-grid">
               <div className="servico-card">
@@ -274,8 +271,6 @@ function App() {
                 <h3>Ações Judiciais contra o INSS</h3>
               </div>
             </div>
-
-            <p className="quem-somos-footer">Trabalhamos com foco em oferecer ao cliente informações claras, segurança jurídica e resultados consistentes.</p>
           </div>
         </div>
       </section>
