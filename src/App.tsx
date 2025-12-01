@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import advogadaImg from './assets/advogada.png'
 import previdenciaImg from './assets/previdencia.png'
-import ceuImg from './assets/ceu.jpg'
 import balanceIcon from './assets/icons/balance.png'
 import lawBookIcon from './assets/icons/law-book.png'
 import auctionIcon from './assets/icons/auction.png'
@@ -116,7 +115,7 @@ function App() {
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-background">
-          <img src={ceuImg} alt="Praça dos Três Poderes - Brasília" className="hero-image" />
+          <img src="https://images.unsplash.com/photo-1625426078245-6911839409dd?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnJhc2lsaWF8ZW58MHx8MHx8fDA%3D" alt="Praça dos Três Poderes - Brasília" className="hero-image" />
           <div className="hero-overlay"></div>
         </div>
         <div className="hero-content">
