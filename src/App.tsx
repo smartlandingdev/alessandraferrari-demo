@@ -1,12 +1,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import advogadaImg from './assets/advogada.png'
-import previdenciaImg from './assets/previdencia.png'
 import justicaImg from './assets/justica.jpg'
-import balanceIcon from './assets/icons/balance.png'
-import lawBookIcon from './assets/icons/law-book.png'
-import auctionIcon from './assets/icons/auction.png'
-import policeOrderIcon from './assets/icons/police-order.png'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
