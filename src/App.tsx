@@ -273,11 +273,25 @@ function App() {
       {/* Atendimento Humanizado */}
       <section id="areas-old" className="section-areas-old">
         <div className="container">
-          <h2 className="section-title centered">Atendimento Humanizado</h2>
-          <div className="atendimento-content">
-            <p>Nossa missão é oferecer um atendimento acolhedor, transparente e responsável.</p>
-            <p>Sabemos que dúvidas sobre aposentadoria ou benefícios do INSS podem gerar insegurança. Por isso, cada cliente é orientado de forma individualizada, com empatia e compromisso.</p>
-            <p><strong>Cada caso importa, e cada cliente é atendido com total atenção.</strong></p>
+          <div className="atendimento-layout">
+            <div className="atendimento-image">
+              <img
+                src="https://b2midia.com.br/wp-content/uploads/2019/12/atendimento-humanizado.jpg"
+                alt="Atendimento Humanizado"
+                className="atendimento-img"
+              />
+              <div className="atendimento-badge">
+                <div className="badge-number">100%</div>
+                <div className="badge-text">Eficiência</div>
+              </div>
+            </div>
+            <div className="atendimento-content">
+              <h2 className="section-title atendimento-title">Atendimento Humanizado</h2>
+              <div className="atendimento-divider"></div>
+              <p>Nossa missão é oferecer um atendimento acolhedor, transparente e responsável.</p>
+              <p>Sabemos que dúvidas sobre aposentadoria ou benefícios do INSS podem gerar insegurança. Por isso, cada cliente é orientado de forma individualizada, com empatia e compromisso.</p>
+              <p><strong>Cada caso importa, e cada cliente é atendido com total atenção.</strong></p>
+            </div>
           </div>
         </div>
       </section>
@@ -320,7 +334,8 @@ function App() {
       {/* Equipe Especializada */}
       <section className="section-equipe-nova">
         <div className="container">
-          <h2 className="section-title centered">Equipe Especializada</h2>
+          <h2 className="section-title centered equipe-nova-title">Equipe Especializada</h2>
+          <div className="equipe-nova-divider"></div>
           <div className="equipe-nova-content">
             <p className="equipe-nova-text">
               Nossa equipe é formada por profissionais comprometidos, em constante atualização sobre as normas previdenciárias, decisões recentes e alterações legais.
@@ -342,7 +357,8 @@ function App() {
       {/* Localização */}
       <section id="localizacao" className="section-localizacao">
         <div className="container">
-          <h2 className="section-title centered">Localização</h2>
+          <h2 className="section-title centered localizacao-title">Localização</h2>
+          <div className="localizacao-divider"></div>
           <div className="localizacao-grid">
             <div className="localizacao-info">
               <h3 className="localizacao-nome">ALESSANDRA FERRARI & ADVOGADOS ASSOCIADOS</h3>
@@ -397,12 +413,6 @@ function App() {
       {/* Contato */}
       <section id="contato" className="section-contato">
         <div className="container">
-          <h2 className="section-title centered">Precisa de Assessoria Jurídica?</h2>
-          <p className="contato-description centered">
-            Estamos à disposição para atender você. Entre em contato através dos canais abaixo
-            ou agende uma reunião em nosso escritório.
-          </p>
-
           <div className="contato-items">
             <div className="contato-item">
               <div className="contato-icon">
