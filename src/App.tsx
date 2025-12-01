@@ -91,7 +91,27 @@ function App() {
               </p>
             </div>
             <div className="sobre-image">
-              <div className="image-frame"></div>
+              {/* Ícones orbitais */}
+              <div className="deco-icon deco-icon-1">
+                <img src="/src/assets/icons/balance.png" alt="Balança" />
+              </div>
+              <div className="deco-icon deco-icon-2">
+                <img src="/src/assets/icons/law-book.png" alt="Livro" />
+              </div>
+              <div className="deco-icon deco-icon-3">
+                <img src="/src/assets/icons/auction.png" alt="Martelo" />
+              </div>
+              <div className="deco-icon deco-icon-4">
+                <img src="/src/assets/icons/police-order.png" alt="Ordem" />
+              </div>
+              <div className="deco-icon deco-icon-5">
+                <img src="/src/assets/icons/balance.png" alt="Balança" />
+              </div>
+              <div className="deco-icon deco-icon-6">
+                <img src="/src/assets/icons/auction.png" alt="Martelo" />
+              </div>
+
+              <img src="/src/assets/advogada.png" alt="Alessandra Ferrari" className="sobre-img" />
             </div>
           </div>
         </div>
