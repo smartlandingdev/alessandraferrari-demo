@@ -296,7 +296,8 @@ body {
   right: 0;
   width: 93.75%;
   height: 87.5%;
-  background: #254C5F;
+  opacity: 50%;  
+  background: #99a4aa;
   z-index: 0;
   border-radius: 12px;
 }
@@ -319,7 +320,7 @@ body {
 }
 
 .section-sobre .section-title {
-  color: var(--white);
+  color: var(--black);
 }
 
 .section-title.centered {
@@ -328,7 +329,7 @@ body {
 
 .sobre-text {
   font-size: 1.1rem;
-  color: var(--white);
+  color: var(--black);
   margin-bottom: 1.5rem;
   line-height: 1.8;
 }
@@ -659,6 +660,46 @@ body {
   position: relative;
 }
 
+.section-beneficios::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  opacity: 50%;
+  top: calc(17rem - 50px);
+  height: 650px;
+  width: 50%;
+  background: #90cadf;
+  z-index: 1;
+  border-radius: 0 20px 20px 0;
+}
+
+.section-beneficios::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  opacity: 100%;
+  top: calc(50% + 100px);
+  transform: translate(-50%, -50%);
+  height: 45%;
+  width: 40%;
+  background: #6a7b85;
+  z-index: 0;
+  border-radius: 20px;
+}
+
+.deco-square-right {
+  position: absolute;
+  right: 0;
+  opacity: 50%;
+  border-radius: 20px;
+
+  top: calc(1rem + 4rem + 450px);
+  height: calc(100% - 8rem - 4rem - 450px);
+  width: calc(30% + 250px);
+  background: #65a4f1;
+  z-index: 0;
+}
+
 .section-beneficios .container {
   position: relative;
   z-index: 2;
@@ -874,6 +915,132 @@ body {
   box-shadow: 0 4px 15px rgba(201, 169, 98, 0.3);
 }
 
+/* ===== IMAGEM DIVISÓRIA ===== */
+.section-divider-image {
+  width: 100%;
+  padding: 4rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white);
+}
+
+.divider-img {
+  width: 100%;
+  max-width: 1200px;
+  height: 300px;
+  object-fit: cover;
+  object-position: center 70%;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  filter: brightness(0.9);
+}
+
+/* ===== QUEM SOMOS ===== */
+.quem-somos-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.quem-somos-intro {
+  font-size: 1.2rem;
+  color: var(--concrete-gray);
+  line-height: 1.8;
+  margin-bottom: 4rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.quem-somos-footer {
+  font-size: 1.2rem;
+  color: var(--concrete-gray);
+  line-height: 1.8;
+  margin-top: 4rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 500;
+}
+
+.servicos-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+
+.servico-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  padding: 2.5rem 1.5rem;
+  border-radius: 16px;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border: 1px solid rgba(201, 169, 98, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.servico-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-gold) 0%, #d4b676 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.servico-card:hover::before {
+  transform: scaleX(1);
+}
+
+.servico-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.12),
+    0 5px 15px rgba(201, 169, 98, 0.15);
+  border-color: rgba(201, 169, 98, 0.3);
+}
+
+.servico-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--accent-gold) 0%, #d4b676 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  box-shadow: 0 8px 20px rgba(201, 169, 98, 0.3);
+  transition: all 0.3s ease;
+}
+
+.servico-card:hover .servico-icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 12px 30px rgba(201, 169, 98, 0.4);
+}
+
+.servico-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--dark-blue);
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0;
+  text-align: center;
+}
+
 /* ===== EQUIPE ===== */
 .section-equipe {
   padding: 8rem 0;
@@ -915,6 +1082,144 @@ body {
   color: var(--dark-blue);
   line-height: 1.8;
   font-weight: 500;
+}
+
+/* ===== ATENDIMENTO HUMANIZADO ===== */
+.section-areas-old {
+  background: #f5f5f5;
+  padding: 10rem 0;
+}
+
+.atendimento-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.atendimento-content p {
+  font-size: 1.2rem;
+  color: var(--concrete-gray);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.atendimento-content p:last-child {
+  font-size: 1.3rem;
+  color: var(--dark-blue);
+  margin-top: 3rem;
+}
+
+/* ===== POR QUE CONTAR COM UM ADVOGADO ===== */
+.section-porque {
+  padding: 8rem 0;
+  background: var(--white);
+}
+
+.porque-content {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.porque-intro {
+  font-size: 1.2rem;
+  color: var(--concrete-gray);
+  line-height: 1.8;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.porque-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.porque-col h3 {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--dark-blue);
+  margin-bottom: 2rem;
+}
+
+.porque-list {
+  list-style: none;
+  padding: 0;
+}
+
+.porque-list li {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+  position: relative;
+  color: var(--concrete-gray);
+}
+
+.problemas li::before {
+  content: '✗';
+  position: absolute;
+  left: 0;
+  color: #e74c3c;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.solucoes li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent-gold);
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+/* ===== EQUIPE ESPECIALIZADA ===== */
+.section-equipe-nova {
+  padding: 8rem 0;
+  background: var(--light-blue);
+}
+
+.equipe-nova-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.equipe-nova-text {
+  font-size: 1.2rem;
+  color: var(--concrete-gray);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.equipe-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--accent-gold);
+  color: var(--white);
+  padding: 1.25rem 2.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(201, 169, 98, 0.3);
+}
+
+.equipe-cta:hover {
+  background: var(--dark-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(10, 22, 40, 0.3);
+}
+
+.equipe-cta svg {
+  transition: transform 0.3s ease;
+}
+
+.equipe-cta:hover svg {
+  transform: translateX(5px);
 }
 
 /* ===== ÁREAS DE ATUAÇÃO ===== */

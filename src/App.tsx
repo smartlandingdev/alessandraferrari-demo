@@ -161,6 +161,7 @@ function App() {
 
       {/* Benefícios */}
       <section id="beneficios" className="section-beneficios">
+        <div className="deco-square-right"></div>
         <div className="container">
           <h2 className="section-title centered">Benefícios Atendidos</h2>
           <div className="beneficios-grid">
@@ -196,33 +197,148 @@ function App() {
         </div>
       </section>
 
-      {/* Áreas de Atuação */}
+      {/* Imagem Divisória */}
+      <section className="section-divider-image">
+        <img
+          src="/src/assets/previdencia.png"
+          alt="Previdência"
+          className="divider-img"
+        />
+      </section>
+
+      {/* Quem Somos */}
       <section id="areas" className="section-areas">
         <div className="container">
-          <h2 className="section-title centered">Áreas de Atuação</h2>
-          <p className="section-subtitle">Expertise especializada para atender suas necessidades jurídicas</p>
+          <h2 className="section-title centered">Quem Somos</h2>
+          <div className="quem-somos-content">
+            <p className="quem-somos-intro">Localizado em Cascavel/PR, o escritório atua há anos prestando assessoria jurídica exclusiva na área previdenciária. Atendemos clientes de toda a região, acompanhando todas as fases do processo:</p>
 
-          <div className="areas-grid">
-            <div className="area-card">
-              <h3>Direito Previdenciário</h3>
-              <p>Aposentadorias (idade, tempo de contribuição, invalidez, especial), auxílio-doença, auxílio-acidente, pensão por morte, revisões, desaposentação, cálculos e simulações.</p>
+            <div className="servicos-grid">
+              <div className="servico-card">
+                <div className="servico-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                </div>
+                <h3>Análise Documental</h3>
+              </div>
+
+              <div className="servico-card">
+                <div className="servico-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="12" y1="18" x2="12" y2="12"></line>
+                    <line x1="9" y1="15" x2="15" y2="15"></line>
+                  </svg>
+                </div>
+                <h3>Protocolos Administrativos</h3>
+              </div>
+
+              <div className="servico-card">
+                <div className="servico-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                  </svg>
+                </div>
+                <h3>Perícias Médicas</h3>
+              </div>
+
+              <div className="servico-card">
+                <div className="servico-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <polyline points="9 11 12 14 22 4"></polyline>
+                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                  </svg>
+                </div>
+                <h3>Recursos Internos</h3>
+              </div>
+
+              <div className="servico-card">
+                <div className="servico-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 9.9-1"></path>
+                  </svg>
+                </div>
+                <h3>Ações Judiciais contra o INSS</h3>
+              </div>
             </div>
-            <div className="area-card">
-              <h3>Direito Civil e Consumidor</h3>
-              <p>Ação de cobrança, execução de títulos, obrigação de fazer, inventário e arrolamento, mandado de segurança, reparação de danos, revisão de contratos, tutela e curatela.</p>
+
+            <p className="quem-somos-footer">Trabalhamos com foco em oferecer ao cliente informações claras, segurança jurídica e resultados consistentes.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Atendimento Humanizado */}
+      <section id="areas-old" className="section-areas-old">
+        <div className="container">
+          <h2 className="section-title centered">Atendimento Humanizado</h2>
+          <div className="atendimento-content">
+            <p>Nossa missão é oferecer um atendimento acolhedor, transparente e responsável.</p>
+            <p>Sabemos que dúvidas sobre aposentadoria ou benefícios do INSS podem gerar insegurança. Por isso, cada cliente é orientado de forma individualizada, com empatia e compromisso.</p>
+            <p><strong>Cada caso importa, e cada cliente é atendido com total atenção.</strong></p>
+          </div>
+        </div>
+      </section>
+
+      {/* Por que contar com um advogado */}
+      <section className="section-porque">
+        <div className="container">
+          <h2 className="section-title centered">Por que contar com um advogado previdenciarista?</h2>
+          <div className="porque-content">
+            <p className="porque-intro">O sistema previdenciário brasileiro possui regras complexas e passou por mudanças profundas após a Reforma da Previdência. Sem orientação, é comum ocorrer:</p>
+
+            <div className="porque-grid">
+              <div className="porque-col">
+                <h3>Problemas Comuns</h3>
+                <ul className="porque-list problemas">
+                  <li>negativa indevida de benefícios;</li>
+                  <li>concessão com valor menor do que o devido;</li>
+                  <li>problemas para comprovar tempo de serviço;</li>
+                  <li>perda de direitos por falta de documentos ou prazos;</li>
+                  <li>dificuldades em perícias médicas.</li>
+                </ul>
+              </div>
+
+              <div className="porque-col">
+                <h3>Com um Advogado Especializado</h3>
+                <ul className="porque-list solucoes">
+                  <li>análise completa do seu histórico de contribuições;</li>
+                  <li>preparação correta de documentos e provas;</li>
+                  <li>acompanhamento em perícias;</li>
+                  <li>recursos administrativos fundamentados;</li>
+                  <li>ajuizamento de ação quando necessário;</li>
+                  <li>muito mais segurança e chances reais de aprovação.</li>
+                </ul>
+              </div>
             </div>
-            <div className="area-card">
-              <h3>Direito de Família</h3>
-              <p>Separação e divórcio, união estável, partilha de bens, pensão alimentícia, guarda e visitas, investigação de paternidade, interdição judicial, adoção, pactos nupciais.</p>
-            </div>
-            <div className="area-card">
-              <h3>Direito Trabalhista</h3>
-              <p><strong>Defesa do Empregado:</strong> Reclamatória trabalhista, acidente de trabalho, reparação de danos.<br/><br/><strong>Defesa do Empregador:</strong> Defesa judicial, consultoria junto ao Ministério do Trabalho, sindicatos e MPT.</p>
-            </div>
-            <div className="area-card">
-              <h3>Diligências Extrajudiciais</h3>
-              <p>Cargas e fotocópias junto ao INSS-Cascavel, Fórum Estadual, Federal e Trabalhista.</p>
-            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Equipe Especializada */}
+      <section className="section-equipe-nova">
+        <div className="container">
+          <h2 className="section-title centered">Equipe Especializada</h2>
+          <div className="equipe-nova-content">
+            <p className="equipe-nova-text">
+              Nossa equipe é formada por profissionais comprometidos, em constante atualização sobre as normas previdenciárias, decisões recentes e alterações legais.
+            </p>
+            <p className="equipe-nova-text">
+              Prezamos por comunicação clara, rapidez no atendimento e acompanhamento integral do cliente.
+            </p>
+            <a href="#" className="equipe-cta">
+              Conheça mais sobre nosso escritório
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
           </div>
         </div>
       </section>
