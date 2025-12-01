@@ -1,5 +1,12 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import advogadaImg from './assets/advogada.png'
+import previdenciaImg from './assets/previdencia.png'
+import ceuImg from './assets/ceu.jpg'
+import balanceIcon from './assets/icons/balance.png'
+import lawBookIcon from './assets/icons/law-book.png'
+import auctionIcon from './assets/icons/auction.png'
+import policeOrderIcon from './assets/icons/police-order.png'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -109,7 +116,7 @@ function App() {
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-background">
-          <img src="https://images.unsplash.com/photo-1625426078245-6911839409dd?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnJhc2lsaWF8ZW58MHx8MHx8fDA%3D" alt="Praça dos Três Poderes - Brasília" className="hero-image" />
+          <img src={ceuImg} alt="Praça dos Três Poderes - Brasília" className="hero-image" />
           <div className="hero-overlay"></div>
         </div>
         <div className="hero-content">
@@ -135,25 +142,25 @@ function App() {
             <div className="sobre-image">
               {/* Ícones orbitais */}
               <div className="deco-icon deco-icon-1">
-                <img src="/src/assets/icons/balance.png" alt="Balança" />
+                <img src={balanceIcon} alt="Balança" />
               </div>
               <div className="deco-icon deco-icon-2">
-                <img src="/src/assets/icons/law-book.png" alt="Livro" />
+                <img src={lawBookIcon} alt="Livro" />
               </div>
               <div className="deco-icon deco-icon-3">
-                <img src="/src/assets/icons/auction.png" alt="Martelo" />
+                <img src={auctionIcon} alt="Martelo" />
               </div>
               <div className="deco-icon deco-icon-4">
-                <img src="/src/assets/icons/police-order.png" alt="Ordem" />
+                <img src={policeOrderIcon} alt="Ordem" />
               </div>
               <div className="deco-icon deco-icon-5">
-                <img src="/src/assets/icons/balance.png" alt="Balança" />
+                <img src={balanceIcon} alt="Balança" />
               </div>
               <div className="deco-icon deco-icon-6">
-                <img src="/src/assets/icons/auction.png" alt="Martelo" />
+                <img src={auctionIcon} alt="Martelo" />
               </div>
 
-              <img src="/src/assets/advogada.png" alt="Alessandra Ferrari" className="sobre-img" />
+              <img src={advogadaImg} alt="Alessandra Ferrari" className="sobre-img" />
             </div>
           </div>
         </div>
@@ -200,7 +207,7 @@ function App() {
       {/* Imagem Divisória */}
       <section className="section-divider-image">
         <img
-          src="/src/assets/previdencia.png"
+          src={previdenciaImg}
           alt="Previdência"
           className="divider-img"
         />
