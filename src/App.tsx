@@ -4,6 +4,7 @@ import './App.css'
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [selectedBeneficio, setSelectedBeneficio] = useState<string | null>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -12,6 +13,47 @@ function App() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  const beneficiosInfo: { [key: string]: { titulo: string; descricao: string } } = {
+    'idade': {
+      titulo: 'Aposentadoria por Idade (Rural ou Urbana)',
+      descricao: 'A aposentadoria por idade é concedida aos segurados urbanos que completaram 65 anos (homens) ou 62 anos (mulheres), com no mínimo 15 anos de contribuição. Para trabalhadores rurais, a idade mínima é de 60 anos para homens e 55 anos para mulheres. Analisamos toda a documentação necessária e orientamos sobre como comprovar o tempo de atividade rural, garantindo que você receba o benefício com o melhor valor possível.'
+    },
+    'tempo': {
+      titulo: 'Aposentadoria por Tempo de Contribuição',
+      descricao: 'Para quem contribuiu antes da Reforma da Previdência (13/11/2019), ainda é possível se aposentar por tempo de contribuição através das regras de transição. Analisamos seu histórico contributivo completo, identificamos períodos que podem ser incluídos e calculamos qual regra de transição é mais vantajosa para o seu caso, garantindo a melhor data de aposentadoria e o maior valor de benefício.'
+    },
+    'especial': {
+      titulo: 'Aposentadoria Especial – Atividades Insalubres',
+      descricao: 'Trabalhadores expostos a agentes nocivos à saúde (ruído, calor, frio, produtos químicos, agentes biológicos, etc.) têm direito à aposentadoria especial com tempo reduzido de contribuição: 15, 20 ou 25 anos, dependendo do grau de exposição. Realizamos análise técnica de PPP, LTCAT e outros documentos, convertemos tempo especial em comum quando vantajoso, e lutamos pelo reconhecimento da atividade especial mesmo quando a empresa não forneceu a documentação adequada.'
+    },
+    'invalidez': {
+      titulo: 'Aposentadoria por Invalidez / Auxílio-Doença / Auxílio-Acidente',
+      descricao: 'Quando problemas de saúde impedem ou dificultam o trabalho, você pode ter direito a esses benefícios. A aposentadoria por invalidez é concedida quando há incapacidade total e permanente. O auxílio-doença é para incapacidade temporária. O auxílio-acidente é uma indenização para sequelas que reduzem a capacidade laboral. Auxiliamos na preparação para perícia médica, contestamos indeferimentos injustos e garantimos que suas limitações sejam devidamente reconhecidas pelo INSS.'
+    },
+    'pensao': {
+      titulo: 'Pensão por Morte',
+      descricao: 'A pensão por morte é devida aos dependentes do segurado que faleceu, seja ele aposentado ou não. O benefício garante proteção financeira à família em momento de dificuldade. Orientamos sobre quem tem direito (cônjuge, filhos, pais), qual a documentação necessária, como fazer o requerimento e como garantir o recebimento retroativo desde a data do óbito. Também atuamos em casos de pensão negada injustamente.'
+    },
+    'revisao': {
+      titulo: 'Revisões de Benefícios e Desaposentação',
+      descricao: 'Muitos benefícios são concedidos com valores incorretos ou deixam de considerar períodos contributivos. Realizamos análise detalhada do seu benefício para identificar possibilidade de revisão e aumento do valor. A desaposentação permite renunciar à aposentadoria atual para obter uma nova, mais vantajosa, utilizando contribuições feitas após a primeira aposentadoria. Calculamos a viabilidade e conduzimos todo o processo judicial quando necessário.'
+    },
+    'calculos': {
+      titulo: 'Cálculos e Simulações Previdenciárias Personalizadas',
+      descricao: 'Antes de tomar qualquer decisão sobre aposentadoria, é fundamental saber qual a melhor opção para o seu caso. Realizamos cálculos previdenciários detalhados e simulações comparativas entre diferentes regras (idade, tempo de contribuição, especial, regras de transição), identificamos a melhor data para se aposentar, calculamos quanto você receberá em cada cenário e orientamos sobre estratégias para aumentar o valor do benefício. Planejamento previdenciário é essencial para garantir uma aposentadoria digna.'
+    }
+  }
+
+  const openModal = (beneficioKey: string) => {
+    setSelectedBeneficio(beneficioKey)
+    document.body.style.overflow = 'hidden'
+  }
+
+  const closeModal = () => {
+    setSelectedBeneficio(null)
+    document.body.style.overflow = 'unset'
+  }
 
   return (
     <div className="app">
@@ -82,12 +124,12 @@ function App() {
         <div className="container">
           <div className="sobre-grid">
             <div className="sobre-content">
-              <h2 className="section-title">Excelência em Advocacia</h2>
+              <h2 className="section-title">Sobre a Advogada</h2>
               <p className="sobre-text">
-                Somos um escritório de advocacia que atua em toda a região Oeste do Paraná. Somos especialistas em Direito Previdenciário. Atuamos também nos ramos Trabalhista, Cível, Família, Direito do Consumidor, entre outros.
+                O escritório Alessandra Ferrari Advocacia atua com dedicação exclusiva ao Direito Previdenciário. Nosso trabalho é oferecer um atendimento humanizado, análise minuciosa do caso e orientação completa em todas as etapas do processo.
               </p>
               <p className="sobre-text">
-                Atuamos como Correspondentes e realizamos serviço de diligências para cargas e fotocópias de processos administrativos e laudos periciais junto ao INSS-Cascavel.
+                Acompanhamos desde o primeiro atendimento até o resultado final, garantindo que cada cliente receba o benefício que realmente tem direito — com segurança jurídica, transparência e agilidade.
               </p>
             </div>
             <div className="sobre-image">
@@ -117,24 +159,39 @@ function App() {
         </div>
       </section>
 
-      {/* Equipe */}
-      <section id="equipe" className="section-equipe">
+      {/* Benefícios */}
+      <section id="beneficios" className="section-beneficios">
         <div className="container">
-          <h2 className="section-title centered">Nossa Equipe</h2>
-          <div className="equipe-content">
-            <p className="equipe-text">
-              Dispomos de equipe qualificada, atenta à legislação vigente que de maneira personalizada, atende a expectativa dos nossos clientes.
-            </p>
-            <div className="equipe-destaque">
-              <h3 className="equipe-destaque-title">ATENÇÃO:</h3>
-              <p className="equipe-destaque-text">
-                TRABALHAMOS COMO ADVOGADOS CORRESPONDENTES EM TODA A REGIÃO<br/>
-                (Advogados cadastrados no Portal www.juriscorrespondente.com.br)
-              </p>
+          <h2 className="section-title centered">Benefícios Atendidos</h2>
+          <div className="beneficios-grid">
+            <div className="beneficio-card" onClick={() => openModal('idade')}>
+              <h3>Aposentadoria por Idade (Rural ou Urbana)</h3>
+              <button className="beneficio-btn">Ver mais informações</button>
             </div>
-            <p className="equipe-text">
-              Disponibilizamos-nos para diligências para cargas e fotocópias junto ao INSS-Cascavel.
-            </p>
+            <div className="beneficio-card" onClick={() => openModal('tempo')}>
+              <h3>Aposentadoria por Tempo de Contribuição</h3>
+              <button className="beneficio-btn">Ver mais informações</button>
+            </div>
+            <div className="beneficio-card" onClick={() => openModal('especial')}>
+              <h3>Aposentadoria Especial – Atividades Insalubres</h3>
+              <button className="beneficio-btn">Ver mais informações</button>
+            </div>
+            <div className="beneficio-card" onClick={() => openModal('invalidez')}>
+              <h3>Aposentadoria por Invalidez / Auxílio-Doença / Auxílio-Acidente</h3>
+              <button className="beneficio-btn">Ver mais informações</button>
+            </div>
+            <div className="beneficio-card" onClick={() => openModal('pensao')}>
+              <h3>Pensão por Morte</h3>
+              <button className="beneficio-btn">Ver mais informações</button>
+            </div>
+            <div className="beneficio-card" onClick={() => openModal('revisao')}>
+              <h3>Revisões de Benefícios e Desaposentação</h3>
+              <button className="beneficio-btn">Ver mais informações</button>
+            </div>
+            <div className="beneficio-card" onClick={() => openModal('calculos')}>
+              <h3>Cálculos e Simulações Previdenciárias Personalizadas</h3>
+              <button className="beneficio-btn">Ver mais informações</button>
+            </div>
           </div>
         </div>
       </section>
@@ -302,6 +359,25 @@ function App() {
           </div>
         </div>
       </footer>
+
+      {/* Modal de Benefícios */}
+      {selectedBeneficio && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={closeModal}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+            <h2 className="modal-title">{beneficiosInfo[selectedBeneficio].titulo}</h2>
+            <p className="modal-description">{beneficiosInfo[selectedBeneficio].descricao}</p>
+            <a href="#contato" className="modal-cta" onClick={closeModal}>
+              Entre em contato para saber mais
+            </a>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
