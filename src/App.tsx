@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import advogadaImg from './assets/advogada.png'
 import justicaImg from './assets/justica.jpg'
+import equipeEscritorioImg from './assets/equipe-escritorio.jpg'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -136,6 +137,7 @@ function App() {
               </p>
             </div>
             <div className="sobre-image">
+              <div className="sobre-circle-bg"></div>
               <img src={advogadaImg} alt="Alessandra Ferrari" className="sobre-img" />
             </div>
           </div>
@@ -143,7 +145,6 @@ function App() {
       </section>
 
       {/* Espaçamento */}
-      <div className="spacing-section"></div>
 
       {/* Benefícios */}
       <section id="beneficios" className="section-beneficios">
@@ -333,23 +334,27 @@ function App() {
 
       {/* Equipe Especializada */}
       <section className="section-equipe-nova">
-        <div className="container">
-          <h2 className="section-title centered equipe-nova-title">Equipe Especializada</h2>
-          <div className="equipe-nova-divider"></div>
-          <div className="equipe-nova-content">
-            <p className="equipe-nova-text">
-              Nossa equipe é formada por profissionais comprometidos, em constante atualização sobre as normas previdenciárias, decisões recentes e alterações legais.
-            </p>
-            <p className="equipe-nova-text">
-              Prezamos por comunicação clara, rapidez no atendimento e acompanhamento integral do cliente.
-            </p>
-            <a href="#" className="equipe-cta">
-              Conheça mais sobre nosso escritório
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <div className="equipe-nova-container">
+          <div className="equipe-nova-left">
+            <a href="#contato" className="equipe-nova-link">
+              <span>Conheça nosso escritório</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </a>
+          </div>
+          <div className="equipe-nova-right">
+            <img src={equipeEscritorioImg} alt="Escritório" className="equipe-nova-img" />
+            <div className="equipe-nova-overlay">
+              <h2 className="equipe-nova-title">Equipe Especializada</h2>
+              <p className="equipe-nova-text">
+                Nossa equipe é formada por profissionais comprometidos, em constante atualização sobre as normas previdenciárias, decisões recentes e alterações legais.
+              </p>
+              <p className="equipe-nova-text">
+                Prezamos por comunicação clara, rapidez no atendimento e acompanhamento integral do cliente.
+              </p>
+            </div>
           </div>
         </div>
       </section>

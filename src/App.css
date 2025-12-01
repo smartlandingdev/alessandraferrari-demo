@@ -1,3 +1,6 @@
+/* ===== IMPORTS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap');
+
 /* ===== VARIÁVEIS E RESET ===== */
 :root {
   /* Paleta Brasília - Cores inspiradas na arquitetura */
@@ -10,7 +13,7 @@
   --gray: #E3E7E9;
   /* Tipografia */
   --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 * {
@@ -285,21 +288,8 @@ body {
 /* ===== SOBRE ===== */
 .section-sobre {
   padding: 8rem 0;
-  background: var(--gray);
+  background: var(--white);
   position: relative;
-}
-
-.section-sobre::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 93.75%;
-  height: 87.5%;
-  opacity: 50%;
-  background: #99a4aa;
-  z-index: 0;
-  border-radius: 0 0 0 50px;
 }
 
 .sobre-grid {
@@ -387,33 +377,47 @@ body {
 .sobre-image::before {
   content: '';
   position: absolute;
-  top: 5%;
-  right: -5%;
-  width: 50%;
-  height: 60%;
-  background: var(--accent-gold);
-  opacity: 0.2;
-  border-radius: 200px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(8deg);
+  width: 450px;
+  height: 550px;
+  background: #99a4aa;
+  opacity: 0.5;
+  border-radius: 30px;
   z-index: 0;
 }
 
 .sobre-image::after {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: -8%;
-  width: 35%;
-  height: 50%;
-  background: var(--dark-blue);
-  opacity: 0.15;
-  border-radius: 20px;
-  z-index: 0;
-  transform: rotate(-8deg);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-36.18deg);
+  width: 450px;
+  height: 550px;
+  background: #165E74;
+  opacity: 0.5;
+  border-radius: 30px;
+  z-index: 1;
+}
+
+.sobre-circle-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-51deg);
+  width: 462px;
+  height: 473px;
+  background: var(--accent-gold);
+  opacity: 0.3;
+  border-radius: 50%;
+  z-index: -1;
 }
 
 .sobre-img {
-  width: 140%;
-  height: 140%;
+  width: 180%;
+  height: 180%;
   object-fit: contain;
   object-position: center;
   position: relative;
@@ -424,28 +428,14 @@ body {
 /* ===== ESPAÇAMENTO ===== */
 .spacing-section {
   height: 8rem;
-  background: var(--gray);
+  background: var(--white);
 }
 
 /* ===== BENEFÍCIOS ===== */
 .section-beneficios {
   padding: 8rem 0;
-  background: var(--gray);
+  background: var(--white);
   position: relative;
-}
-
-.section-beneficios::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  max-width: 1816px;
-  background: #6A7B85;
-  opacity: 0.5;
-  z-index: 0;
-  border-radius: 0 0 50px 0;
 }
 
 .beneficios-container {
@@ -504,6 +494,7 @@ body {
   position: relative;
   z-index: 2;
   padding-right: 2rem;
+  justify-content: start;
 }
 
 .beneficios-grid .beneficio-card:nth-child(1) {
@@ -589,11 +580,11 @@ body {
 }
 
 .beneficio-card h3 {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: 1.35rem;
   color: var(--dark-blue);
   line-height: 1.5;
-  font-weight: 700;
+  font-weight: 400;
   margin: 0;
   min-height: 80px;
   display: flex;
@@ -753,7 +744,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--gray);
+  background: var(--white);
 }
 
 .divider-img {
@@ -935,7 +926,7 @@ body {
 
 /* ===== ATENDIMENTO HUMANIZADO ===== */
 .section-areas-old {
-  background: var(--gray);
+  background: #F5F5F5;
   padding: 8rem 0;
 }
 
@@ -1090,63 +1081,93 @@ body {
 
 /* ===== EQUIPE ESPECIALIZADA ===== */
 .section-equipe-nova {
-  padding: 8rem 0;
+  padding: 0;
   background: var(--white);
+  overflow: hidden;
+}
+
+.equipe-nova-container {
+  display: flex;
+  width: 100%;
+  min-height: 300px;
+}
+
+.equipe-nova-left {
+  width: 20%;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.equipe-nova-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--dark-blue);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.equipe-nova-link:hover {
+  color: var(--accent-gold);
+}
+
+.equipe-nova-link svg {
+  transition: transform 0.3s ease;
+}
+
+.equipe-nova-link:hover svg {
+  transform: translateX(5px);
+}
+
+.equipe-nova-right {
+  width: 80%;
+  position: relative;
+  overflow: hidden;
+}
+
+.equipe-nova-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.15;
+}
+
+.equipe-nova-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+  text-align: center;
 }
 
 .equipe-nova-title {
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
   font-weight: 400;
-  margin-bottom: 1.5rem;
-}
-
-.equipe-nova-divider {
-  width: 100px;
-  height: 4px;
-  background: var(--accent-gold);
-  margin: 0 auto 3rem;
-}
-
-.equipe-nova-content {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
+  color: var(--dark-blue);
+  margin-bottom: 2rem;
+  line-height: 1.2;
 }
 
 .equipe-nova-text {
   font-size: 1.2rem;
   color: var(--concrete-gray);
   line-height: 1.8;
-  margin-bottom: 2rem;
-}
-
-.equipe-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  background: var(--accent-gold);
-  color: var(--white);
-  padding: 1.25rem 2.5rem;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.1rem;
-  margin-top: 2rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(201, 169, 98, 0.3);
-}
-
-.equipe-cta:hover {
-  background: var(--dark-blue);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(10, 22, 40, 0.3);
-}
-
-.equipe-cta svg {
-  transition: transform 0.3s ease;
-}
-
-.equipe-cta:hover svg {
-  transform: translateX(5px);
+  margin-bottom: 1.5rem;
+  max-width: 800px;
 }
 
 /* ===== ÁREAS DE ATUAÇÃO ===== */
