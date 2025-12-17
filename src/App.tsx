@@ -3,6 +3,7 @@ import './App.css'
 import advogadaImg from './assets/advogada.png'
 import justicaImg from './assets/justica.jpg'
 import equipeEscritorioImg from './assets/equipe-escritorio.jpg'
+import logoImg from './assets/LOGO (1).png'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -85,8 +86,7 @@ function App() {
           <div className="container">
             <div className="nav-content">
               <div className="logo">
-                <span className="logo-text">Alessandra Ferrari</span>
-                <span className="logo-subtitle">Advogados Associados</span>
+                <img src={logoImg} alt="Alessandra Ferrari Advogados" className="logo-img" />
               </div>
               <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
                 <li><a href="#sobre" onClick={() => setIsMenuOpen(false)}>Sobre</a></li>
@@ -112,13 +112,66 @@ function App() {
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-background">
-          <img src="https://images.unsplash.com/photo-1625426078245-6911839409dd?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnJhc2lsaWF8ZW58MHx8MHx8fDA%3D" alt="Praça dos Três Poderes - Brasília" className="hero-image" />
+          <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=2070&auto=format&fit=crop" alt="Advocacia Previdencialista" className="hero-image" />
           <div className="hero-overlay"></div>
         </div>
         <div className="hero-content">
-          <h1 className="hero-title">Devotos à Justiça</h1>
-          <p className="hero-subtitle">Excelência e compromisso com resultados</p>
+          <h1 className="hero-title">Por que contratar um advogado <span className="hero-highlight">previdenciarista</span>?</h1>
+          <p className="hero-subtitle">Porque seu benefício no INSS exige estratégia, não tentativa.</p>
           <div className="hero-divider"></div>
+        </div>
+      </section>
+
+      {/* Saiba Mais - Direito Previdencialista */}
+      <section className="section-saiba-mais">
+        <div className="container">
+          <h2 className="section-title centered">Advocacia Previdencialista: Protegendo Seus Direitos</h2>
+          <div className="saiba-mais-intro">
+            <p>O advogado previdenciarista é o profissional especializado em garantir que trabalhadores, aposentados e pensionistas tenham acesso pleno aos benefícios previdenciários. Nossa atuação abrange desde a orientação inicial até a conquista judicial do seu direito.</p>
+          </div>
+          <div className="saiba-mais-grid">
+            <div className="saiba-mais-card">
+              <div className="saiba-mais-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                  <path d="M2 17l10 5 10-5"></path>
+                  <path d="M2 12l10 5 10-5"></path>
+                </svg>
+              </div>
+              <h3>Análise Técnica Especializada</h3>
+              <p>Revisamos todo o histórico contributivo, identificamos períodos que podem ser incluídos, analisamos documentos e calculamos o melhor cenário para sua aposentadoria.</p>
+            </div>
+            <div className="saiba-mais-card">
+              <div className="saiba-mais-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <h3>Acompanhamento Integral</h3>
+              <p>Desde o primeiro contato até a concessão do benefício, você terá suporte em todas as etapas: pedidos administrativos, perícias médicas, recursos e ações judiciais.</p>
+            </div>
+            <div className="saiba-mais-card">
+              <div className="saiba-mais-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <h3>Atendimento Personalizado</h3>
+              <p>Cada caso é único. Oferecemos orientação individualizada, explicando suas opções de forma clara e ajudando você a tomar as melhores decisões sobre seu futuro.</p>
+            </div>
+            <div className="saiba-mais-card">
+              <div className="saiba-mais-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+              </div>
+              <h3>Segurança Jurídica</h3>
+              <p>Evite negativas injustas, benefícios com valores incorretos e perda de direitos. Com assessoria especializada, você tem a certeza de estar recebendo exatamente o que lhe é devido.</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -148,45 +201,36 @@ function App() {
 
       {/* Benefícios */}
       <section id="beneficios" className="section-beneficios">
-        <div className="container beneficios-container">
+        <div className="container">
           <h2 className="section-title centered beneficios-title">Benefícios Atendidos</h2>
-          <div className="beneficios-layout">
-            <div className="beneficios-image">
-              <img
-                src="https://img1.migalhas.uol.com.br/gf_base/empresas/MIGA/imagens/16B4121113CFFE91FBF7F0997361461AE890_advogada.jpg"
-                alt="Advogada Previdenciária"
-                className="beneficios-img"
-              />
+          <div className="beneficios-grid-simple">
+            <div className="beneficio-card" onClick={() => openModal('idade')}>
+              <h3>Aposentadoria por Idade (Rural ou Urbana)</h3>
+              <button className="beneficio-btn">Ver mais informações</button>
             </div>
-            <div className="beneficios-grid">
-              <div className="beneficio-card" onClick={() => openModal('idade')}>
-                <h3>Aposentadoria por Idade (Rural ou Urbana)</h3>
-                <button className="beneficio-btn">Ver mais informações</button>
-              </div>
-              <div className="beneficio-card" onClick={() => openModal('tempo')}>
-                <h3>Aposentadoria por Tempo de Contribuição</h3>
-                <button className="beneficio-btn">Ver mais informações</button>
-              </div>
-              <div className="beneficio-card" onClick={() => openModal('especial')}>
-                <h3>Aposentadoria Especial – Atividades Insalubres</h3>
-                <button className="beneficio-btn">Ver mais informações</button>
-              </div>
-              <div className="beneficio-card" onClick={() => openModal('invalidez')}>
-                <h3>Aposentadoria por Invalidez / Auxílio-Doença / Auxílio-Acidente</h3>
-                <button className="beneficio-btn">Ver mais informações</button>
-              </div>
-              <div className="beneficio-card" onClick={() => openModal('pensao')}>
-                <h3>Pensão por Morte</h3>
-                <button className="beneficio-btn">Ver mais informações</button>
-              </div>
-              <div className="beneficio-card" onClick={() => openModal('revisao')}>
-                <h3>Revisões de Benefícios e Desaposentação</h3>
-                <button className="beneficio-btn">Ver mais informações</button>
-              </div>
-              <div className="beneficio-card" onClick={() => openModal('calculos')}>
-                <h3>Cálculos e Simulações Previdenciárias Personalizadas</h3>
-                <button className="beneficio-btn">Ver mais informações</button>
-              </div>
+            <div className="beneficio-card" onClick={() => openModal('tempo')}>
+              <h3>Aposentadoria por Tempo de Contribuição</h3>
+              <button className="beneficio-btn">Ver mais informações</button>
+            </div>
+            <div className="beneficio-card" onClick={() => openModal('especial')}>
+              <h3>Aposentadoria Especial – Atividades Insalubres</h3>
+              <button className="beneficio-btn">Ver mais informações</button>
+            </div>
+            <div className="beneficio-card" onClick={() => openModal('invalidez')}>
+              <h3>Aposentadoria por Invalidez / Auxílio-Doença / Auxílio-Acidente</h3>
+              <button className="beneficio-btn">Ver mais informações</button>
+            </div>
+            <div className="beneficio-card" onClick={() => openModal('pensao')}>
+              <h3>Pensão por Morte</h3>
+              <button className="beneficio-btn">Ver mais informações</button>
+            </div>
+            <div className="beneficio-card" onClick={() => openModal('revisao')}>
+              <h3>Revisões de Benefícios e Desaposentação</h3>
+              <button className="beneficio-btn">Ver mais informações</button>
+            </div>
+            <div className="beneficio-card" onClick={() => openModal('calculos')}>
+              <h3>Cálculos e Simulações Previdenciárias Personalizadas</h3>
+              <button className="beneficio-btn">Ver mais informações</button>
             </div>
           </div>
         </div>
@@ -266,32 +310,6 @@ function App() {
                 </div>
                 <h3>Ações Judiciais contra o INSS</h3>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Atendimento Humanizado */}
-      <section id="areas-old" className="section-areas-old">
-        <div className="container">
-          <div className="atendimento-layout">
-            <div className="atendimento-image">
-              <img
-                src="https://b2midia.com.br/wp-content/uploads/2019/12/atendimento-humanizado.jpg"
-                alt="Atendimento Humanizado"
-                className="atendimento-img"
-              />
-              <div className="atendimento-badge">
-                <div className="badge-number">100%</div>
-                <div className="badge-text">Eficiência</div>
-              </div>
-            </div>
-            <div className="atendimento-content">
-              <h2 className="section-title atendimento-title">Atendimento Humanizado</h2>
-              <div className="atendimento-divider"></div>
-              <p>Nossa missão é oferecer um atendimento acolhedor, transparente e responsável.</p>
-              <p>Sabemos que dúvidas sobre aposentadoria ou benefícios do INSS podem gerar insegurança. Por isso, cada cliente é orientado de forma individualizada, com empatia e compromisso.</p>
-              <p><strong>Cada caso importa, e cada cliente é atendido com total atenção.</strong></p>
             </div>
           </div>
         </div>
@@ -426,8 +444,7 @@ function App() {
         <div className="container">
           <div className="footer-content">
             <div className="footer-logo">
-              <span className="logo-text">Alessandra Ferrari</span>
-              <span className="logo-subtitle">Advogados Associados</span>
+              <img src={logoImg} alt="Alessandra Ferrari Advogados" className="footer-logo-img" />
               <p className="footer-tagline">Devotos à Justiça</p>
             </div>
             <div className="footer-links">
