@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import advogadaImg from './assets/advogada.png'
-import justicaImg from './assets/justica.jpg'
-import equipeEscritorioImg from './assets/equipe-escritorio.jpg'
 import escritorioImg from './assets/escritorio.png'
 import logoImg from './assets/LOGO (1).png'
+import advogadaImg from './assets/advogada.png'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -18,6 +16,31 @@ function App() {
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    // Scroll animations
+    const animateOnScroll = () => {
+      const elements = document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-fade')
+
+      elements.forEach((element) => {
+        const elementTop = element.getBoundingClientRect().top
+        const elementBottom = element.getBoundingClientRect().bottom
+        const windowHeight = window.innerHeight
+
+        // Elemento está visível na tela
+        if (elementTop < windowHeight * 0.85 && elementBottom > 0) {
+          element.classList.add('animate-in')
+        }
+      })
+    }
+
+    // Executar ao carregar
+    animateOnScroll()
+
+    // Executar ao fazer scroll
+    window.addEventListener('scroll', animateOnScroll)
+    return () => window.removeEventListener('scroll', animateOnScroll)
   }, [])
 
   useEffect(() => {
@@ -105,10 +128,10 @@ function App() {
                 <img src={logoImg} alt="Alessandra Ferrari Advogados" className="logo-img" />
               </div>
               <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
-                <li><a href="#sobre" onClick={() => setIsMenuOpen(false)}>Sobre</a></li>
-                <li><a href="#areas" onClick={() => setIsMenuOpen(false)}>Áreas de Atuação</a></li>
-                <li><a href="#equipe" onClick={() => setIsMenuOpen(false)}>Equipe</a></li>
-                <li><a href="#cases" onClick={() => setIsMenuOpen(false)}>Cases</a></li>
+                <li><a href="#areas" onClick={() => setIsMenuOpen(false)}>Quem Somos</a></li>
+                <li><a href="#sobre" onClick={() => setIsMenuOpen(false)}>Sobre o Escritório</a></li>
+                <li><a href="#beneficios" onClick={() => setIsMenuOpen(false)}>Benefícios</a></li>
+                <li><a href="#localizacao" onClick={() => setIsMenuOpen(false)}>Localização</a></li>
                 <li><a href="#contato" onClick={() => setIsMenuOpen(false)}>Contato</a></li>
               </ul>
               <button
@@ -147,14 +170,14 @@ function App() {
       <section id="areas" className="section-areas">
         <div className="container">
           <div className="quem-somos-layout">
-            <div className="quem-somos-text">
+            <div className="quem-somos-text scroll-animate-left">
               <h2 className="section-title quem-somos-title">Quem Somos</h2>
               <div className="quem-somos-divider"></div>
               <p className="quem-somos-intro">Localizado em Cascavel/PR, o escritório atua há anos prestando assessoria jurídica exclusiva na área previdenciária. Atendemos clientes de toda a região, acompanhando todas as fases do processo.</p>
               <p className="quem-somos-footer">Trabalhamos com foco em oferecer ao cliente informações claras, segurança jurídica e resultados consistentes.</p>
             </div>
 
-            <div className="quem-somos-image">
+            <div className="quem-somos-image scroll-animate-right">
               <img src="https://storage.alboom.ninja/sites/32632/albuns/1172894/ensaio-escritorio-advocacia-rj-422.jpg?t=1682972164" alt="Equipe Alessandra Ferrari" className="quem-somos-img" />
             </div>
           </div>
@@ -164,12 +187,12 @@ function App() {
       {/* Por que contar com um advogado */}
       <section className="section-porque">
         <div className="container">
-          <h2 className="section-title centered">Por que contar com um advogado previdenciarista?</h2>
+          <h2 className="section-title centered scroll-animate">Por que contar com um advogado previdenciarista?</h2>
           <div className="porque-content">
-            <p className="porque-intro">O sistema previdenciário brasileiro possui regras complexas e passou por mudanças profundas após a Reforma da Previdência. Sem orientação, é comum ocorrer:</p>
+            <p className="porque-intro scroll-animate">O sistema previdenciário brasileiro possui regras complexas e passou por mudanças profundas após a Reforma da Previdência. Sem orientação, é comum ocorrer:</p>
 
             <div className="porque-grid">
-              <div className="porque-col">
+              <div className="porque-col scroll-animate-left">
                 <h3>Problemas Comuns</h3>
                 <ul className="porque-list problemas">
                   <li>Negativa indevida de benefícios</li>
@@ -180,7 +203,7 @@ function App() {
                 </ul>
               </div>
 
-              <div className="porque-col">
+              <div className="porque-col scroll-animate-right">
                 <h3>Com um Advogado Especializado</h3>
                 <ul className="porque-list solucoes">
                   <li>Análise completa do seu histórico de contribuições</li>
@@ -200,11 +223,11 @@ function App() {
       <section id="sobre" className="section-sobre">
         <div className="container">
           <div className="sobre-grid sobre-grid-reverse">
-            <div className="sobre-image">
+            <div className="sobre-image scroll-animate-left">
               <div className="sobre-circle-bg"></div>
               <img src={escritorioImg} alt="Escritório Alessandra Ferrari" className="sobre-img" />
             </div>
-            <div className="sobre-content">
+            <div className="sobre-content scroll-animate-right">
               <h2 className="section-title sobre-title">Sobre o Escritório</h2>
               <div className="sobre-divider"></div>
               <p className="sobre-text">
@@ -221,33 +244,33 @@ function App() {
       {/* Benefícios Atendidos */}
       <section id="beneficios" className="section-beneficios">
         <div className="container">
-          <h2 className="section-title centered beneficios-title">Benefícios Atendidos</h2>
+          <h2 className="section-title centered beneficios-title scroll-animate">Benefícios Atendidos</h2>
           <div className="beneficios-grid-simple">
-            <div className="beneficio-card" onClick={() => openModal('idade')}>
+            <div className="beneficio-card scroll-animate" onClick={() => openModal('idade')}>
               <h3>Aposentadoria por Idade (Rural ou Urbana)</h3>
               <button className="beneficio-btn">Ver mais informações</button>
             </div>
-            <div className="beneficio-card" onClick={() => openModal('tempo')}>
+            <div className="beneficio-card scroll-animate" onClick={() => openModal('tempo')}>
               <h3>Aposentadoria por Tempo de Contribuição</h3>
               <button className="beneficio-btn">Ver mais informações</button>
             </div>
-            <div className="beneficio-card" onClick={() => openModal('especial')}>
+            <div className="beneficio-card scroll-animate" onClick={() => openModal('especial')}>
               <h3>Aposentadoria Especial – Atividades Insalubres</h3>
               <button className="beneficio-btn">Ver mais informações</button>
             </div>
-            <div className="beneficio-card" onClick={() => openModal('invalidez')}>
+            <div className="beneficio-card scroll-animate" onClick={() => openModal('invalidez')}>
               <h3>Aposentadoria por Invalidez / Auxílio-Doença / Auxílio-Acidente</h3>
               <button className="beneficio-btn">Ver mais informações</button>
             </div>
-            <div className="beneficio-card" onClick={() => openModal('pensao')}>
+            <div className="beneficio-card scroll-animate" onClick={() => openModal('pensao')}>
               <h3>Pensão por Morte</h3>
               <button className="beneficio-btn">Ver mais informações</button>
             </div>
-            <div className="beneficio-card" onClick={() => openModal('revisao')}>
+            <div className="beneficio-card scroll-animate" onClick={() => openModal('revisao')}>
               <h3>Revisões de Benefícios e Desaposentação</h3>
               <button className="beneficio-btn">Ver mais informações</button>
             </div>
-            <div className="beneficio-card" onClick={() => openModal('calculos')}>
+            <div className="beneficio-card scroll-animate" onClick={() => openModal('calculos')}>
               <h3>Cálculos e Simulações Previdenciárias Personalizadas</h3>
               <button className="beneficio-btn">Ver mais informações</button>
             </div>
@@ -258,12 +281,12 @@ function App() {
       {/* Saiba Mais - Direito Previdencialista */}
       <section className="section-saiba-mais">
         <div className="container">
-          <h2 className="section-title centered">Advocacia Previdencialista: Protegendo Seus Direitos</h2>
-          <div className="saiba-mais-intro">
+          <h2 className="section-title centered scroll-animate">Advocacia Previdencialista: Protegendo Seus Direitos</h2>
+          <div className="saiba-mais-intro scroll-animate">
             <p>O advogado previdenciarista é o profissional especializado em garantir que trabalhadores, aposentados e pensionistas tenham acesso pleno aos benefícios previdenciários. Nossa atuação abrange desde a orientação inicial até a conquista judicial do seu direito.</p>
           </div>
           <div className="saiba-mais-grid">
-            <div className="saiba-mais-card">
+            <div className="saiba-mais-card scroll-animate">
               <div className="saiba-mais-icon">
                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
@@ -274,7 +297,7 @@ function App() {
               <h3>Análise Técnica Especializada</h3>
               <p>Revisamos todo o histórico contributivo, identificamos períodos que podem ser incluídos, analisamos documentos e calculamos o melhor cenário para sua aposentadoria.</p>
             </div>
-            <div className="saiba-mais-card">
+            <div className="saiba-mais-card scroll-animate">
               <div className="saiba-mais-icon">
                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <circle cx="12" cy="12" r="10"></circle>
@@ -284,7 +307,7 @@ function App() {
               <h3>Acompanhamento Integral</h3>
               <p>Desde o primeiro contato até a concessão do benefício, você terá suporte em todas as etapas: pedidos administrativos, perícias médicas, recursos e ações judiciais.</p>
             </div>
-            <div className="saiba-mais-card">
+            <div className="saiba-mais-card scroll-animate">
               <div className="saiba-mais-icon">
                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -294,7 +317,7 @@ function App() {
               <h3>Atendimento Personalizado</h3>
               <p>Cada caso é único. Oferecemos orientação individualizada, explicando suas opções de forma clara e ajudando você a tomar as melhores decisões sobre seu futuro.</p>
             </div>
-            <div className="saiba-mais-card">
+            <div className="saiba-mais-card scroll-animate">
               <div className="saiba-mais-icon">
                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
@@ -311,10 +334,10 @@ function App() {
       {/* Localização */}
       <section id="localizacao" className="section-localizacao">
         <div className="container">
-          <h2 className="section-title centered localizacao-title">Localização</h2>
-          <div className="localizacao-divider"></div>
+          <h2 className="section-title centered localizacao-title scroll-animate">Localização</h2>
+          <div className="localizacao-divider scroll-animate"></div>
           <div className="localizacao-grid">
-            <div className="localizacao-info">
+            <div className="localizacao-info scroll-animate-left">
               <h3 className="localizacao-nome">ALESSANDRA FERRARI & ADVOGADOS ASSOCIADOS</h3>
               <div className="localizacao-items">
                 <div className="localizacao-item">
@@ -348,7 +371,7 @@ function App() {
                 </div>
               </div>
             </div>
-            <div className="localizacao-mapa">
+            <div className="localizacao-mapa scroll-animate-right">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3648.7889765893857!2d-53.45694492372736!3d-24.95589977780956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f3d4f5f5f5f5f5%3A0x5f5f5f5f5f5f5f5f!2sRua%20S%C3%A3o%20Paulo%2C%20707%20-%20Centro%2C%20Cascavel%20-%20PR!5e0!3m2!1spt-BR!2sbr!4v1234567890123!5m2!1spt-BR!2sbr"
                 width="100%"
@@ -361,12 +384,6 @@ function App() {
               ></iframe>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Contato */}
-      <section id="contato" className="section-contato">
-        <div className="container">
         </div>
       </section>
 
@@ -433,7 +450,7 @@ function App() {
           <div className="chat-popup-content">
             <div className="chat-popup-avatar">
               <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop"
+                src={advogadaImg}
                 alt="Atendente"
                 className="chat-popup-avatar-img"
               />
