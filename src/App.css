@@ -146,6 +146,10 @@ body {
   transition: color 0.3s ease;
 }
 
+.header.scrolled .contact-link {
+  color: var(--dark-blue);
+}
+
 .contact-link:hover {
   color: var(--accent-gold);
 }
