@@ -3,12 +3,14 @@ import './App.css'
 import advogadaImg from './assets/advogada.png'
 import justicaImg from './assets/justica.jpg'
 import equipeEscritorioImg from './assets/equipe-escritorio.jpg'
+import escritorioImg from './assets/escritorio.png'
 import logoImg from './assets/LOGO (1).png'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [selectedBeneficio, setSelectedBeneficio] = useState<string | null>(null)
+  const [showChatPopup, setShowChatPopup] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +18,20 @@ function App() {
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    // Mostrar chat popup após 3 segundos
+    const timer = setTimeout(() => {
+      setShowChatPopup(true)
+      // Reproduzir som de notificação
+      const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIGmi77eifTRAIUKfu8LhjHAU7k9r0ynYpBSh+zPLaizsIHGm98Oedsg0LTqTk9L1oIgYuhNHx1Ik5CBpqvO/mnk0SC1Km5/S6ZCEGK4HP8tmJNggaab3v55xMEAhPpe/zuWMcBTuU2vPJdykHKH3L89+MOwcbaL3v6J9NEQpPpOfzvGkcBi2D0fHWiDkIGmm+8OibTBELUKXn87pkHwUrg9Hx1Ig2CBppvfDnnU0RClCm6PS5ZBwGLYPQ8daIOwgaabzw6J9NEQtQqOj1vGkiBi6D0PHWiToIGmm97+icTBELUKbo9LpkHQUrg9Hx1og2CBto/u/pn00RClCl6PS7aB4GMYPs8teIPAgaabzw6J9MEAtPpuj0u2kiBjCE0fHWiDwHGmq+7+mfThILUKXo9LxpHwUug9Hx1og7Bxtpve/pn04RClCl6PW7aCIGMITR8dWIPQgaabzw6Z9OEQtPpOj0vGkiBi+C0fHWiDwHGmm97+mfThILUKXn9LxpIQYug9Dx1og6CBppvfDpn04SC1Cm6PS7aCIGMIPR8daIOwgaabzw6Z9OEQpPpef0u2kiBjCC0fHWiTsIGmm97+mfThEKT6Xo9Ltqnl')
+      audio.volume = 0.3
+      audio.play().catch(() => {
+        // Ignorar erro se o usuário não interagiu ainda com a página
+      })
+    }, 3000)
+    return () => clearTimeout(timer)
   }, [])
 
   const beneficiosInfo: { [key: string]: { titulo: string; descricao: string } } = {
@@ -112,13 +128,130 @@ function App() {
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-background">
-          <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=2070&auto=format&fit=crop" alt="Advocacia Previdencialista" className="hero-image" />
+          <img src="https://images.unsplash.com/photo-1436450412740-6b988f486c6b?q=80&w=2070&auto=format&fit=crop" alt="Advocacia Previdencialista" className="hero-image" />
           <div className="hero-overlay"></div>
         </div>
         <div className="hero-content">
           <h1 className="hero-title">Por que contratar um advogado <span className="hero-highlight">previdenciarista</span>?</h1>
           <p className="hero-subtitle">Porque seu benefício no INSS exige estratégia, não tentativa.</p>
+          <div className="hero-buttons">
+            <a href="#sobre" className="hero-btn hero-btn-primary">
+              Ferrari & Associados
+            </a>
+          </div>
           <div className="hero-divider"></div>
+        </div>
+      </section>
+
+      {/* Quem Somos */}
+      <section id="areas" className="section-areas">
+        <div className="container">
+          <div className="quem-somos-layout">
+            <div className="quem-somos-text">
+              <h2 className="section-title quem-somos-title">Quem Somos</h2>
+              <div className="quem-somos-divider"></div>
+              <p className="quem-somos-intro">Localizado em Cascavel/PR, o escritório atua há anos prestando assessoria jurídica exclusiva na área previdenciária. Atendemos clientes de toda a região, acompanhando todas as fases do processo.</p>
+              <p className="quem-somos-footer">Trabalhamos com foco em oferecer ao cliente informações claras, segurança jurídica e resultados consistentes.</p>
+            </div>
+
+            <div className="quem-somos-image">
+              <img src="https://storage.alboom.ninja/sites/32632/albuns/1172894/ensaio-escritorio-advocacia-rj-422.jpg?t=1682972164" alt="Equipe Alessandra Ferrari" className="quem-somos-img" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Por que contar com um advogado */}
+      <section className="section-porque">
+        <div className="container">
+          <h2 className="section-title centered">Por que contar com um advogado previdenciarista?</h2>
+          <div className="porque-content">
+            <p className="porque-intro">O sistema previdenciário brasileiro possui regras complexas e passou por mudanças profundas após a Reforma da Previdência. Sem orientação, é comum ocorrer:</p>
+
+            <div className="porque-grid">
+              <div className="porque-col">
+                <h3>Problemas Comuns</h3>
+                <ul className="porque-list problemas">
+                  <li>Negativa indevida de benefícios</li>
+                  <li>Concessão com valor menor do que o devido</li>
+                  <li>Problemas para comprovar tempo de serviço</li>
+                  <li>Perda de direitos por falta de documentos ou prazos</li>
+                  <li>Dificuldades em perícias médicas</li>
+                </ul>
+              </div>
+
+              <div className="porque-col">
+                <h3>Com um Advogado Especializado</h3>
+                <ul className="porque-list solucoes">
+                  <li>Análise completa do seu histórico de contribuições</li>
+                  <li>Preparação correta de documentos e provas</li>
+                  <li>Acompanhamento em perícias</li>
+                  <li>Recursos administrativos fundamentados</li>
+                  <li>Ajuizamento de ação quando necessário</li>
+                  <li>Muito mais segurança e chances reais de aprovação</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sobre o Escritório */}
+      <section id="sobre" className="section-sobre">
+        <div className="container">
+          <div className="sobre-grid sobre-grid-reverse">
+            <div className="sobre-image">
+              <div className="sobre-circle-bg"></div>
+              <img src={escritorioImg} alt="Escritório Alessandra Ferrari" className="sobre-img" />
+            </div>
+            <div className="sobre-content">
+              <h2 className="section-title sobre-title">Sobre o Escritório</h2>
+              <div className="sobre-divider"></div>
+              <p className="sobre-text">
+                O escritório Alessandra Ferrari Advocacia atua com dedicação exclusiva ao Direito Previdenciário. Nosso trabalho é oferecer um atendimento humanizado, análise minuciosa do caso e orientação completa em todas as etapas do processo.
+              </p>
+              <p className="sobre-text">
+                Acompanhamos desde o primeiro atendimento até o resultado final, garantindo que cada cliente receba o benefício que realmente tem direito — com segurança jurídica, transparência e agilidade.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefícios Atendidos */}
+      <section id="beneficios" className="section-beneficios">
+        <div className="container">
+          <h2 className="section-title centered beneficios-title">Benefícios Atendidos</h2>
+          <div className="beneficios-grid-simple">
+            <div className="beneficio-card" onClick={() => openModal('idade')}>
+              <h3>Aposentadoria por Idade (Rural ou Urbana)</h3>
+              <button className="beneficio-btn">Ver mais informações</button>
+            </div>
+            <div className="beneficio-card" onClick={() => openModal('tempo')}>
+              <h3>Aposentadoria por Tempo de Contribuição</h3>
+              <button className="beneficio-btn">Ver mais informações</button>
+            </div>
+            <div className="beneficio-card" onClick={() => openModal('especial')}>
+              <h3>Aposentadoria Especial – Atividades Insalubres</h3>
+              <button className="beneficio-btn">Ver mais informações</button>
+            </div>
+            <div className="beneficio-card" onClick={() => openModal('invalidez')}>
+              <h3>Aposentadoria por Invalidez / Auxílio-Doença / Auxílio-Acidente</h3>
+              <button className="beneficio-btn">Ver mais informações</button>
+            </div>
+            <div className="beneficio-card" onClick={() => openModal('pensao')}>
+              <h3>Pensão por Morte</h3>
+              <button className="beneficio-btn">Ver mais informações</button>
+            </div>
+            <div className="beneficio-card" onClick={() => openModal('revisao')}>
+              <h3>Revisões de Benefícios e Desaposentação</h3>
+              <button className="beneficio-btn">Ver mais informações</button>
+            </div>
+            <div className="beneficio-card" onClick={() => openModal('calculos')}>
+              <h3>Cálculos e Simulações Previdenciárias Personalizadas</h3>
+              <button className="beneficio-btn">Ver mais informações</button>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -170,208 +303,6 @@ function App() {
               </div>
               <h3>Segurança Jurídica</h3>
               <p>Evite negativas injustas, benefícios com valores incorretos e perda de direitos. Com assessoria especializada, você tem a certeza de estar recebendo exatamente o que lhe é devido.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Sobre */}
-      <section id="sobre" className="section-sobre">
-        <div className="container">
-          <div className="sobre-grid">
-            <div className="sobre-content">
-              <h2 className="section-title sobre-title">Sobre a Advogada</h2>
-              <div className="sobre-divider"></div>
-              <p className="sobre-text">
-                O escritório Alessandra Ferrari Advocacia atua com dedicação exclusiva ao Direito Previdenciário. Nosso trabalho é oferecer um atendimento humanizado, análise minuciosa do caso e orientação completa em todas as etapas do processo.
-              </p>
-              <p className="sobre-text">
-                Acompanhamos desde o primeiro atendimento até o resultado final, garantindo que cada cliente receba o benefício que realmente tem direito — com segurança jurídica, transparência e agilidade.
-              </p>
-            </div>
-            <div className="sobre-image">
-              <div className="sobre-circle-bg"></div>
-              <img src={advogadaImg} alt="Alessandra Ferrari" className="sobre-img" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Espaçamento */}
-
-      {/* Benefícios */}
-      <section id="beneficios" className="section-beneficios">
-        <div className="container">
-          <h2 className="section-title centered beneficios-title">Benefícios Atendidos</h2>
-          <div className="beneficios-grid-simple">
-            <div className="beneficio-card" onClick={() => openModal('idade')}>
-              <h3>Aposentadoria por Idade (Rural ou Urbana)</h3>
-              <button className="beneficio-btn">Ver mais informações</button>
-            </div>
-            <div className="beneficio-card" onClick={() => openModal('tempo')}>
-              <h3>Aposentadoria por Tempo de Contribuição</h3>
-              <button className="beneficio-btn">Ver mais informações</button>
-            </div>
-            <div className="beneficio-card" onClick={() => openModal('especial')}>
-              <h3>Aposentadoria Especial – Atividades Insalubres</h3>
-              <button className="beneficio-btn">Ver mais informações</button>
-            </div>
-            <div className="beneficio-card" onClick={() => openModal('invalidez')}>
-              <h3>Aposentadoria por Invalidez / Auxílio-Doença / Auxílio-Acidente</h3>
-              <button className="beneficio-btn">Ver mais informações</button>
-            </div>
-            <div className="beneficio-card" onClick={() => openModal('pensao')}>
-              <h3>Pensão por Morte</h3>
-              <button className="beneficio-btn">Ver mais informações</button>
-            </div>
-            <div className="beneficio-card" onClick={() => openModal('revisao')}>
-              <h3>Revisões de Benefícios e Desaposentação</h3>
-              <button className="beneficio-btn">Ver mais informações</button>
-            </div>
-            <div className="beneficio-card" onClick={() => openModal('calculos')}>
-              <h3>Cálculos e Simulações Previdenciárias Personalizadas</h3>
-              <button className="beneficio-btn">Ver mais informações</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Imagem Divisória */}
-      <section className="section-divider-image">
-        <img
-          src={justicaImg}
-          alt="Lady Justice - Símbolo da Justiça"
-          className="divider-img"
-        />
-      </section>
-
-      {/* Quem Somos */}
-      <section id="areas" className="section-areas">
-        <div className="container">
-          <div className="quem-somos-layout">
-            <div className="quem-somos-text">
-              <h2 className="section-title quem-somos-title">Quem Somos</h2>
-              <div className="quem-somos-divider"></div>
-              <p className="quem-somos-intro">Localizado em Cascavel/PR, o escritório atua há anos prestando assessoria jurídica exclusiva na área previdenciária. Atendemos clientes de toda a região, acompanhando todas as fases do processo:</p>
-              <p className="quem-somos-footer">Trabalhamos com foco em oferecer ao cliente informações claras, segurança jurídica e resultados consistentes.</p>
-            </div>
-
-            <div className="servicos-grid">
-              <div className="servico-card">
-                <div className="servico-icon">
-                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                    <polyline points="14 2 14 8 20 8"></polyline>
-                    <line x1="16" y1="13" x2="8" y2="13"></line>
-                    <line x1="16" y1="17" x2="8" y2="17"></line>
-                    <polyline points="10 9 9 9 8 9"></polyline>
-                  </svg>
-                </div>
-                <h3>Análise Documental</h3>
-              </div>
-
-              <div className="servico-card">
-                <div className="servico-icon">
-                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                    <polyline points="14 2 14 8 20 8"></polyline>
-                    <line x1="12" y1="18" x2="12" y2="12"></line>
-                    <line x1="9" y1="15" x2="15" y2="15"></line>
-                  </svg>
-                </div>
-                <h3>Protocolos Administrativos</h3>
-              </div>
-
-              <div className="servico-card">
-                <div className="servico-icon">
-                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                  </svg>
-                </div>
-                <h3>Perícias Médicas</h3>
-              </div>
-
-              <div className="servico-card">
-                <div className="servico-icon">
-                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <polyline points="9 11 12 14 22 4"></polyline>
-                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-                  </svg>
-                </div>
-                <h3>Recursos Internos</h3>
-              </div>
-
-              <div className="servico-card">
-                <div className="servico-icon">
-                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                    <path d="M7 11V7a5 5 0 0 1 9.9-1"></path>
-                  </svg>
-                </div>
-                <h3>Ações Judiciais contra o INSS</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Por que contar com um advogado */}
-      <section className="section-porque">
-        <div className="container">
-          <h2 className="section-title centered">Por que contar com um advogado previdenciarista?</h2>
-          <div className="porque-content">
-            <p className="porque-intro">O sistema previdenciário brasileiro possui regras complexas e passou por mudanças profundas após a Reforma da Previdência. Sem orientação, é comum ocorrer:</p>
-
-            <div className="porque-grid">
-              <div className="porque-col">
-                <h3>Problemas Comuns</h3>
-                <ul className="porque-list problemas">
-                  <li>negativa indevida de benefícios;</li>
-                  <li>concessão com valor menor do que o devido;</li>
-                  <li>problemas para comprovar tempo de serviço;</li>
-                  <li>perda de direitos por falta de documentos ou prazos;</li>
-                  <li>dificuldades em perícias médicas.</li>
-                </ul>
-              </div>
-
-              <div className="porque-col">
-                <h3>Com um Advogado Especializado</h3>
-                <ul className="porque-list solucoes">
-                  <li>análise completa do seu histórico de contribuições;</li>
-                  <li>preparação correta de documentos e provas;</li>
-                  <li>acompanhamento em perícias;</li>
-                  <li>recursos administrativos fundamentados;</li>
-                  <li>ajuizamento de ação quando necessário;</li>
-                  <li>muito mais segurança e chances reais de aprovação.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Equipe Especializada */}
-      <section className="section-equipe-nova">
-        <div className="equipe-nova-container">
-          <div className="equipe-nova-left">
-            <a href="#contato" className="equipe-nova-link">
-              <span>Conheça nosso escritório</span>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
-          </div>
-          <div className="equipe-nova-right">
-            <img src={equipeEscritorioImg} alt="Escritório" className="equipe-nova-img" />
-            <div className="equipe-nova-overlay">
-              <h2 className="equipe-nova-title">Equipe Especializada</h2>
-              <p className="equipe-nova-text">
-                Nossa equipe é formada por profissionais comprometidos, em constante atualização sobre as normas previdenciárias, decisões recentes e alterações legais.
-              </p>
-              <p className="equipe-nova-text">
-                Prezamos por comunicação clara, rapidez no atendimento e acompanhamento integral do cliente.
-              </p>
             </div>
           </div>
         </div>
@@ -482,6 +413,45 @@ function App() {
             <a href="#contato" className="modal-cta" onClick={closeModal}>
               Entre em contato para saber mais
             </a>
+          </div>
+        </div>
+      )}
+
+      {/* Chat Popup */}
+      {showChatPopup && (
+        <div className={`chat-popup ${showChatPopup ? 'chat-popup-show' : ''}`}>
+          <button
+            className="chat-popup-close"
+            onClick={() => setShowChatPopup(false)}
+            aria-label="Fechar chat"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+          <div className="chat-popup-content">
+            <div className="chat-popup-avatar">
+              <img
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop"
+                alt="Atendente"
+                className="chat-popup-avatar-img"
+              />
+              <div className="chat-popup-status"></div>
+            </div>
+            <div className="chat-popup-message">
+              <div className="chat-popup-bubble">
+                <p>Inicie uma conversa com nossos especialistas!</p>
+              </div>
+              <a
+                href="https://wa.me/5545999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20de%20advocacia%20previdenciária."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="chat-popup-btn"
+              >
+                Iniciar Conversa
+              </a>
+            </div>
           </div>
         </div>
       )}
