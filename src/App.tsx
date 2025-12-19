@@ -476,6 +476,11 @@ function App() {
               <h4>Contato</h4>
               <p>Rua São Paulo, 707, Sl. 101<br/>Centro, Cascavel/PR</p>
               <p>(45) 3306-8111</p>
+              <p>(45) 9 9900-6007 (WhatsApp)</p>
+              <p>contato@advalessandraferrari.com.br</p>
+              <a href="https://www.instagram.com/ferrariadvogados/" target="_blank" rel="noopener noreferrer" className="footer-social">
+                @ferrariadvogados
+              </a>
             </div>
           </div>
           <div className="footer-bottom">

@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 /* ===== VARIÁVEIS E RESET ===== */
 :root {
@@ -358,7 +359,7 @@ body {
 }
 
 .hero-title {
-  font-family: var(--font-serif);
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: clamp(2rem, 6vw, 3.5rem);
   font-weight: 600;
   margin-bottom: 1.5rem;
@@ -2355,6 +2356,20 @@ body {
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 0.75rem;
   line-height: 1.7;
+}
+
+.footer-social {
+  display: inline-block;
+  color: var(--accent-gold);
+  text-decoration: none;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.footer-social:hover {
+  color: #e0c493;
+  text-decoration: underline;
 }
 
 .footer-bottom {
