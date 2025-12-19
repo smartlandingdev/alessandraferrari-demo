@@ -232,7 +232,7 @@ function App() {
               <h2 className="section-title sobre-title">Sobre o Escritório</h2>
               <div className="section-divider"></div>
               <p className="sobre-text">
-                O escritório Alessandra Ferrari Advocacia atua com dedicação exclusiva ao Direito Previdenciário. Nosso trabalho é oferecer um atendimento humanizado, análise minuciosa do caso e orientação completa em todas as etapas do processo.
+                O escritório Ferrari & Advogados Associados atua com dedicação exclusiva ao Direito Previdenciário. Nosso trabalho é oferecer um atendimento humanizado, análise minuciosa do caso e orientação completa em todas as etapas do processo.
               </p>
               <p className="sobre-text">
                 Acompanhamos desde o primeiro atendimento até o resultado final, garantindo que cada cliente receba o benefício que realmente tem direito — com segurança jurídica, transparência e agilidade.

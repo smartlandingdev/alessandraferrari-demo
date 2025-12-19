@@ -468,30 +468,66 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 2rem;
-  border-radius: 8px;
+  padding: 1.1rem 3rem;
+  border-radius: 4px;
   text-decoration: none;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.95rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
+  letter-spacing: 3px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
-  border: 2px solid transparent;
+  position: relative;
+  overflow: visible;
 }
 
 .hero-btn-primary {
-  background: #98805B;
-  color: var(--white);
-  box-shadow: 0 4px 15px rgba(152, 128, 91, 0.3);
+  background: rgba(207, 174, 123, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--accent-gold);
+  border: 2px solid var(--accent-gold);
+  font-family: var(--font-serif);
+  box-shadow:
+    0 8px 32px rgba(207, 174, 123, 0.2),
+    0 0 0 1px rgba(207, 174, 123, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.hero-btn-primary::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    rgba(207, 174, 123, 0.3) 50%,
+    transparent 100%
+  );
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.hero-btn-primary:hover::before {
+  opacity: 1;
 }
 
 .hero-btn-primary:hover {
-  background: var(--white);
-  color: #98805B;
-  border-color: #98805B;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(152, 128, 91, 0.4);
+  background: rgba(207, 174, 123, 0.15);
+  color: #e0c493;
+  border-color: #e0c493;
+  transform: translateY(-3px);
+  box-shadow:
+    0 12px 40px rgba(207, 174, 123, 0.35),
+    0 0 0 1px rgba(224, 196, 147, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 0 30px rgba(207, 174, 123, 0.15);
+  letter-spacing: 4px;
 }
 
 .hero-btn-instagram {
