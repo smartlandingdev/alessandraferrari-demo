@@ -79,8 +79,8 @@ function App() {
       descricao: 'A pensão por morte é devida aos dependentes do segurado que faleceu, seja ele aposentado ou não. O benefício garante proteção financeira à família em momento de dificuldade. Orientamos sobre quem tem direito (cônjuge, filhos, pais), qual a documentação necessária, como fazer o requerimento e como garantir o recebimento retroativo desde a data do óbito. Também atuamos em casos de pensão negada injustamente.'
     },
     'revisao': {
-      titulo: 'Revisões de Benefícios e Desaposentação',
-      descricao: 'Muitos benefícios são concedidos com valores incorretos ou deixam de considerar períodos contributivos. Realizamos análise detalhada do seu benefício para identificar possibilidade de revisão e aumento do valor. A desaposentação permite renunciar à aposentadoria atual para obter uma nova, mais vantajosa, utilizando contribuições feitas após a primeira aposentadoria. Calculamos a viabilidade e conduzimos todo o processo judicial quando necessário.'
+      titulo: 'Revisões de Benefícios',
+      descricao: 'Muitos benefícios são concedidos com valores incorretos ou deixam de considerar períodos contributivos. Realizamos análise detalhada do seu benefício para identificar possibilidade de revisão e aumento do valor. Verificamos se há períodos não computados, erros de cálculo ou mudanças na legislação que possam beneficiá-lo. Calculamos a viabilidade e conduzimos todo o processo judicial quando necessário.'
     },
     'calculos': {
       titulo: 'Cálculos e Simulações Previdenciárias Personalizadas',
@@ -172,7 +172,7 @@ function App() {
           <div className="quem-somos-layout">
             <div className="quem-somos-text scroll-animate-left">
               <h2 className="section-title quem-somos-title">Quem Somos</h2>
-              <div className="quem-somos-divider"></div>
+              <div className="section-divider"></div>
               <p className="quem-somos-intro">Localizado em Cascavel/PR, o escritório atua há anos prestando assessoria jurídica exclusiva na área previdenciária. Atendemos clientes de toda a região, acompanhando todas as fases do processo.</p>
               <p className="quem-somos-footer">Trabalhamos com foco em oferecer ao cliente informações claras, segurança jurídica e resultados consistentes.</p>
             </div>
@@ -188,6 +188,7 @@ function App() {
       <section className="section-porque">
         <div className="container">
           <h2 className="section-title centered scroll-animate">Por que contar com um advogado previdenciarista?</h2>
+          <div className="section-divider"></div>
           <div className="porque-content">
             <p className="porque-intro scroll-animate">O sistema previdenciário brasileiro possui regras complexas e passou por mudanças profundas após a Reforma da Previdência. Sem orientação, é comum ocorrer:</p>
 
@@ -229,7 +230,7 @@ function App() {
             </div>
             <div className="sobre-content scroll-animate-right">
               <h2 className="section-title sobre-title">Sobre o Escritório</h2>
-              <div className="sobre-divider"></div>
+              <div className="section-divider"></div>
               <p className="sobre-text">
                 O escritório Alessandra Ferrari Advocacia atua com dedicação exclusiva ao Direito Previdenciário. Nosso trabalho é oferecer um atendimento humanizado, análise minuciosa do caso e orientação completa em todas as etapas do processo.
               </p>
@@ -245,6 +246,7 @@ function App() {
       <section id="beneficios" className="section-beneficios">
         <div className="container">
           <h2 className="section-title centered beneficios-title scroll-animate">Benefícios Atendidos</h2>
+          <div className="section-divider"></div>
           <div className="beneficios-grid-simple">
             <div className="beneficio-card scroll-animate" onClick={() => openModal('idade')}>
               <h3>Aposentadoria por Idade (Rural ou Urbana)</h3>
@@ -267,7 +269,7 @@ function App() {
               <button className="beneficio-btn">Ver mais informações</button>
             </div>
             <div className="beneficio-card scroll-animate" onClick={() => openModal('revisao')}>
-              <h3>Revisões de Benefícios e Desaposentação</h3>
+              <h3>Revisões de Benefícios</h3>
               <button className="beneficio-btn">Ver mais informações</button>
             </div>
             <div className="beneficio-card scroll-animate" onClick={() => openModal('calculos')}>
@@ -282,6 +284,7 @@ function App() {
       <section className="section-saiba-mais">
         <div className="container">
           <h2 className="section-title centered scroll-animate">Advocacia Previdencialista: Protegendo Seus Direitos</h2>
+          <div className="section-divider"></div>
           <div className="saiba-mais-intro scroll-animate">
             <p>O advogado previdenciarista é o profissional especializado em garantir que trabalhadores, aposentados e pensionistas tenham acesso pleno aos benefícios previdenciários. Nossa atuação abrange desde a orientação inicial até a conquista judicial do seu direito.</p>
           </div>
@@ -335,7 +338,7 @@ function App() {
       <section id="localizacao" className="section-localizacao">
         <div className="container">
           <h2 className="section-title centered localizacao-title scroll-animate">Localização</h2>
-          <div className="localizacao-divider scroll-animate"></div>
+          <div className="section-divider"></div>
           <div className="localizacao-grid">
             <div className="localizacao-info scroll-animate-left">
               <h3 className="localizacao-nome">ALESSANDRA FERRARI & ADVOGADOS ASSOCIADOS</h3>
@@ -387,6 +390,71 @@ function App() {
         </div>
       </section>
 
+      {/* Contato */}
+      <section id="contato" className="section-contato">
+        <div className="container">
+          <h2 className="section-title centered scroll-animate">Entre em Contato</h2>
+          <div className="section-divider"></div>
+          <p className="contato-description scroll-animate">
+            Estamos à disposição para esclarecer suas dúvidas e analisar seu caso. Entre em contato através de qualquer um dos canais abaixo.
+          </p>
+
+          <div className="contato-grid">
+            <a href="tel:+554533068111" className="contato-card scroll-animate">
+              <div className="contato-icon telefone">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </div>
+              <div className="contato-content">
+                <h3>Telefone</h3>
+                <p>(45) 3306-8111</p>
+              </div>
+            </a>
+
+            <a href="https://wa.me/5545999006007?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20de%20advocacia%20previdenciária." target="_blank" rel="noopener noreferrer" className="contato-card scroll-animate">
+              <div className="contato-icon whatsapp">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                </svg>
+              </div>
+              <div className="contato-content">
+                <h3>WhatsApp</h3>
+                <p>(45) 9 9900-6007</p>
+                <span className="contato-badge">Resposta rápida</span>
+              </div>
+            </a>
+
+            <a href="mailto:contato@advalessandraferrari.com.br" className="contato-card scroll-animate">
+              <div className="contato-icon email">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div className="contato-content">
+                <h3>E-mail</h3>
+                <p>contato@advalessandraferrari.com.br</p>
+              </div>
+            </a>
+
+            <a href="https://www.instagram.com/ferrariadvogados/" target="_blank" rel="noopener noreferrer" className="contato-card scroll-animate">
+              <div className="contato-icon instagram">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </div>
+              <div className="contato-content">
+                <h3>Instagram</h3>
+                <p>@ferrariadvogados</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="footer">
         <div className="container">
@@ -398,9 +466,10 @@ function App() {
             <div className="footer-links">
               <h4>Navegação</h4>
               <ul>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#areas">Áreas de Atuação</a></li>
-                <li><a href="#contato">Contato</a></li>
+                <li><a href="#areas">Quem Somos</a></li>
+                <li><a href="#sobre">Sobre o Escritório</a></li>
+                <li><a href="#beneficios">Benefícios</a></li>
+                <li><a href="#localizacao">Localização</a></li>
               </ul>
             </div>
             <div className="footer-contact">
@@ -410,7 +479,8 @@ function App() {
             </div>
           </div>
           <div className="footer-bottom">
-            <p>&copy; 2024 Alessandra Ferrari & Advogados Associados. Todos os direitos reservados.</p>
+            <p>&copy; 2025 Alessandra Ferrari & Advogados Associados. Todos os direitos reservados.</p>
+            <p className="footer-dev">Desenvolvido por <a href="https://www.smartlanding.com.br/" target="_blank" rel="noopener noreferrer">Smart Landing</a></p>
           </div>
         </div>
       </footer>
@@ -461,7 +531,7 @@ function App() {
                 <p>Inicie uma conversa com nossos especialistas!</p>
               </div>
               <a
-                href="https://wa.me/5545999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20de%20advocacia%20previdenciária."
+                href="https://wa.me/5545999006007?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20de%20advocacia%20previdenciária."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="chat-popup-btn"
